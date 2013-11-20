@@ -12,4 +12,18 @@
  */
 
 return array(
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'params' => array(
+                    'user'     => 'username',
+                    'password' => 'userpassword',
+                    'host'     => 'localhost',
+                    'port'     => '3306',
+                    'dbname'   => 'masterclass',
+                    'charset'  => 'utf8',
+                )
+            ),
+        ),
+    )
 );

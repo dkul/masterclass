@@ -33,6 +33,8 @@ class AlbumFieldset extends Fieldset
             ),
             'attributes' => array(
                 'required' => 'required',
+                'id' => 'albumTitle',
+                'class' => 'form-control'
             )
         ));
 
@@ -44,6 +46,8 @@ class AlbumFieldset extends Fieldset
             ),
             'attributes' => array(
                 'required' => 'required',
+                'id' => 'albumArtistTitle',
+                'class' => 'form-control'
             )
         ));
 
@@ -51,7 +55,8 @@ class AlbumFieldset extends Fieldset
             'name' => 'submit',
             'attributes' => array(
                 'type' => 'submit',
-                'value' => 'Сохранить'
+                'value' => 'Сохранить',
+                'class' => 'btn btn-default'
             )
         ));
     }

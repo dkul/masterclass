@@ -9,5 +9,7 @@ $form->setAttribute('action', $this->url('album', array('action' => 'add')));
 $form->prepare();
 
 echo $this->form()->openTag($form);
-echo $this->formCollection($form);
+echo '<div class="form-group">' . $this->formRow($form->get('album')->get('title')) . '</div>';
+echo '<div class="form-group">' . $this->formRow($form->get('album')->get('artistTitle')) . '</div>';
+echo $this->formSubmit($form->get('album')->get('submit'));
 echo $this->form()->closeTag();
