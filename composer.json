@@ -1,0 +1,20 @@
+{
+    "name": "Application based on ZF2",
+    "description": "Create application use next frameworks: ZF2, Doctrine2, Bootstrap, jQuery",
+    "keywords": [
+        "framework",
+        "zf2",
+        "doctrine2"
+    ],
+    "homepage": "http://framework.zend.com/",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/ZF2": "2.2.*",
+        "doctrine/common": "2.4.*",
+        "doctrine/dbal": "2.4.1",
+        "doctrine/orm": "2.4.1",
+        "doctrine/doctrine-orm-module": "0.7.*",
+        "doctrine/data-fixtures": "dev-master",
+        "doctrine/migrations": "dev-master"
+    }
+}
