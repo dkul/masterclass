@@ -10,6 +10,6 @@ $form->prepare();
 
 echo $this->form()->openTag($form);
 echo '<div class="form-group">' . $this->formRow($form->get('album')->get('title')) . '</div>';
-echo '<div class="form-group">' . $this->formRow($form->get('album')->get('artistTitle')) . '</div>';
+//echo '<div class="form-group">' . $this->formRow($form->get('album')->get('description')) . '</div>';
 echo $this->formSubmit($form->get('album')->get('submit'));
 echo $this->form()->closeTag();

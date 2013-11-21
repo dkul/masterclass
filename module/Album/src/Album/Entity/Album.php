@@ -3,6 +3,7 @@
 namespace Album\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollections as ArrayCollections;
 
 /**
  * Album
@@ -31,9 +32,9 @@ class Album
     /**
      * @var string
      *
-     * @ORM\Column(name="title_artist", type="string", length=255, nullable=true)
+     * //@ORM\Column(name="description", type="string", length=400, nullable=false)
      */
-    private $titleArtist;
+    //private $description;
 
     /**
      * Get albumId
@@ -47,29 +48,27 @@ class Album
     /**
      * Set albumId
      *
-     * @return integer
      */
     public function setAlbumId($albumId)
     {
         $this->albumId = $albumId;
     }
 
-    public function getAlbumTitle(){
+    public function getTitle(){
         return $this->title;
     }
 
-    public function setAlbumTitle($albumTitle)
+    public function setTitle($albumTitle)
     {
         $this->title = $albumTitle;
     }
 
-    public function getAlbumArtistTitle(){
-        return $this->titleArtist;
+    /*public function getDescription(){
+        return $this->description;
     }
 
-    public function setAlbumArtistTitle($albumArtistTitle)
+    public function setDescription($albumDesc)
     {
-        $this->titleArtist = $albumArtistTitle;
-    }
-
+        $this->description = $albumDesc;
+    }*/
 }

@@ -18,6 +18,13 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        /*$objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
+        $repository = $objectManager->getRepository('Album\Entity\Album');
+        $listAlbums  = $repository->findAll();
+        $view = new ViewModel(array(
+            'listAlbums' => $listAlbums
+        ));
+        return $view;*/
     }
     
     public function addAction()
@@ -26,26 +33,16 @@ class IndexController extends AbstractActionController
         if ($this->getRequest()->isPost()){
             $form->setData($this->getRequest()->getPost());
             if ($form->isValid()) {
-                $data = $form->getData();
-
+                /* Object! */
+                $album = $form->getData();
                 $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
-
-                $album = new \Album\Entity\Album();
-
-                /*$hydrator = new DoctrineObject(
-                    $objectManager,
-                    'Album\Entity\Album'
-                );
-                $album = $hydrator->hydrate($data['album'], $album);
-                */
-
-                $album->setAlbumTitle($data['album']['title']);
-                $album->setAlbumArtistTitle($data['album']['artistTitle']);
-
                 $objectManager->persist($album);
                 $objectManager->flush();
 
-                var_dump($album->getAlbumId());
+                $lastInsertId = $album->getAlbumId();
+                if(!empty($lastInsertId)){
+                    echo 'Success save!';
+                }
             }
         }
 

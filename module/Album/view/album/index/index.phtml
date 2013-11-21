@@ -12,4 +12,16 @@ $this->headScript()->appendFile(
 );
 ?>
 <div>Index Music</div>
+<table class="table">
+<?php
+/*foreach($this->listAlbums as $album){
+    $row = '
+    <tr>
+        <td>' . $this->escapeHtml($album->getTitle()) . '</td>
+        <td><a href="' . $this->url('album', array('action' => 'edit', 'id' => $album->getAlbumId())) . '">Редактировать</a></td>
+    </tr>';
+    echo $row;
+}*/
+?>
+</table>
 <button type="button" class="btn btn-primary" id="addAlbum">Добавить альбом</button>

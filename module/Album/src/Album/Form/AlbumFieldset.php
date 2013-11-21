@@ -12,8 +12,10 @@ use Doctrine\ORM\EntityManager;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterProviderInterface;
+use Zend\Stdlib\Hydrator\ClassMethods as ClassMethodsHydrator;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Album\Entity\Album;
 
 class AlbumFieldset extends Fieldset
     implements InputFilterProviderInterface, ServiceLocatorAwareInterface
@@ -24,6 +26,11 @@ class AlbumFieldset extends Fieldset
     {
 
         parent::__construct($name, $options);
+        /*
+         * Use standart Hydrator
+         */
+        $this->setHydrator(new ClassMethodsHydrator(false))
+             ->setObject(new Album());
 
         $this->add(array(
             'name' => 'title',
@@ -38,18 +45,18 @@ class AlbumFieldset extends Fieldset
             )
         ));
 
-        $this->add(array(
-            'name' => 'artistTitle',
+        /*$this->add(array(
+            'name' => 'description',
             'type' => 'Text',
             'options' => array(
-                'label' => 'Название артиста',
+                'label' => 'Описание альбома',
             ),
             'attributes' => array(
                 'required' => 'required',
-                'id' => 'albumArtistTitle',
+                'id' => 'albumDescription',
                 'class' => 'form-control'
             )
-        ));
+        ));*/
 
         $this->add(array(
             'name' => 'submit',
@@ -87,15 +94,15 @@ class AlbumFieldset extends Fieldset
                     ),
                 ),
             ),
-            'artistTitle' => array(
-                'required' => true,
+            /*'description' => array(
+                'required' => false,
                 'validators' => array(
                     array(
                         'name' => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min' => 1,
-                            'max' => 125,
+                            'max' => 255,
                             'setMessages' => array(
                                 \Zend\Validator\StringLength::TOO_LONG => "Значение должно быть меньше %max% символов",
                                 \Zend\Validator\StringLength::TOO_SHORT => "Значение должно быть больше %min% символов"
@@ -103,7 +110,7 @@ class AlbumFieldset extends Fieldset
                         ),
                     ),
                 ),
-            ),
+            ),*/
         );
     }
 
